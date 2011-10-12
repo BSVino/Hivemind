@@ -80,4 +80,21 @@ class ProjectsController < ApplicationController
       format.json { head :ok }
     end
   end
+
+  # GET /projects/1/tasks
+  def tasks
+    @tasks = Task.find(:all, :conditions => { :project_id => params[:id] })
+	@project = Project.find(params[:id])
+
+	render '/tasks/index'
+  end
+
+  # GET /projects/1/tasks/new
+  def tasks_new
+    project = Project.find(params[:id])
+    @task = project.tasks.build
+
+    render '/tasks/new'
+  end
+
 end

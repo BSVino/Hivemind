@@ -1,5 +1,13 @@
 Hivemind::Application.routes.draw do
-  resources :projects
+
+  resources :projects do
+    member do
+      get 'tasks', :action => 'tasks'
+      get 'tasks/new', :action => 'tasks_new'
+    end
+  end
+
+  resources :tasks
 
   get "home/index"
 
