@@ -8,7 +8,24 @@
 </head>
 <body>
 
-<%= yield %>
+  <div id="header">
+    <div id="breadcrumb">
+      <span class="breadcrumbitem"><a href="/">Hivemind</a></span>
+      <span class="breadcrumbgt">&gt;</span>
+      <span class="breadcrumbitem"><a href="/projects">Projects</a></span>
+    </div>
+    <div id="loginbox">
+      <a href="/"><img id="hivemindlogo" src="/assets/header-hivemind.png" /></a>
+      <p>
+        Welcome to Hivemind!<br />
+        You will be assimilated.
+      </p>
+    </div>
+  </div>
+
+  <div id="content">
+    <%= yield %>
+  </div>
 
 </body>
 </html>

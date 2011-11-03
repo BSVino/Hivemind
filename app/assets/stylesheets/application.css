@@ -5,3 +5,54 @@
  *= require_self
  *= require_tree . 
 */
+
+body {
+	margin: 0 0 0 0
+}
+
+#header {
+	margin-top: 10px;
+	padding: 0;
+	height: 131px;
+	background: #fff url('/assets/header-hex.png') no-repeat top left;
+}
+
+#breadcrumb {
+	float: left;
+	font-size: x-large;
+	margin-top: 50px;
+	margin-left: 50px;
+}
+
+.breadcrumbitem a, .breadcrumbitem a:hover, .breadcrumbitem a:visited {
+	padding: 5px 10px 8px 10px;
+	background: #fff;
+	font-weight: bold;
+	color: #b08d1f;
+	background-color: #fff;
+	text-decoration: none;
+}
+
+.breadcrumbgt {
+	font-weight: bold;
+	color: #fff;
+}
+
+#loginbox {
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	float: right;
+	text-align: center;
+}
+
+#hivemindlogo {
+}
+
+#loginbox a:hover {
+	background-color: #fff;
+	text-decoration: none;
+}
+
+#content {
+	margin: 15px 15px 15px 15px;
+}
