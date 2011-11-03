@@ -19,7 +19,7 @@
     <td><%= task.difficulty %></td>
     <td><%= task.parent %></td>
     <td><%= task.project %></td>
-    <td><%= link_to 'Show', task_url(task) %>
+    <td><%= link_to 'Show', task_path(task) %>
     </td>
     <td>
       <%= link_to 'Edit', edit_task_path(task) %>
@@ -33,4 +33,4 @@
 
 <br />
 
-<%= link_to 'New Task', tasks_new_project_url %>
+<%= link_to 'New Task', tasks_new_project_path %>
