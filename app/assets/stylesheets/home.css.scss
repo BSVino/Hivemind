@@ -1,3 +1,28 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#newprojectbox {
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	float: right;
+	text-align: center;
+	border: 2px solid #cebf62;
+	margin-top: 20px;
+	margin-right: 20px;
+	padding: 20px 20px 20px 20px;
+	padding-bottom: 15px;
+}
+
+#home_content {
+	margin: 15px 15px 15px 15px;
+	margin: auto;
+	text-align: center;
+	width: 750px;
+}
+
+hr {
+	width: 740px;
+	color: #d3d3d3;
+	height: 2px;
+}

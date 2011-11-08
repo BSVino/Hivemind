@@ -91,8 +91,8 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1/tasks/new
   def tasks_new
-    project = Project.find(params[:id])
-    @task = project.tasks.build
+    @project = Project.find(params[:id])
+    @task = @project.tasks.build
 
     render '/tasks/new'
   end

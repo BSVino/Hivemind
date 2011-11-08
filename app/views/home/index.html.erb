@@ -1,3 +1,10 @@
 <h1>Hivemind</h1>
-<%= link_to "List of projects", projects_path %>
+Hivemind helps you find creative projects to collaborate on.
+<hr />
+
+<% @projects.each do |project| %>
+<div>
+  <%= link_to project.name, project %> - <%= project.engine %>
+</div>
+<% end %>
 

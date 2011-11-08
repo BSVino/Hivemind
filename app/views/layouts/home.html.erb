@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hivemind</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <div id="header">
+    <div id="newprojectbox">
+	  <span style="font-size:large;"><strong>Got big ideas?</strong></span>
+	  <p><em><%= link_to 'Start a new project', '/projects/new' %></em></p>
+    </div>
+  </div>
+
+  <div id="home_content">
+    <%= yield %>
+  </div>
+
+</body>
+</html>

@@ -1,3 +1,9 @@
+<% content_for :breadcrumb do %>
+	<span class="breadcrumbitem"><%= link_to @project.name, @project %></span>
+	<span class="breadcrumbgt">&gt;</span>
+	<span class="breadcrumbitem">New Task</span>
+<% end %>
+
 <h1>New task</h1>
 
 <%= render '/tasks/form' %>

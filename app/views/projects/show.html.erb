@@ -1,3 +1,9 @@
+<% content_for :breadcrumb do %>
+	<span class="breadcrumbitem"><a href="/projects">Projects</a></span>
+	<span class="breadcrumbgt">&gt;</span>
+	<span class="breadcrumbitem"><%= link_to @project.name, @project %></span>
+<% end %>
+
 <p id="notice"><%= notice %></p>
 
 <p>

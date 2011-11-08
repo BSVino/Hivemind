@@ -24,7 +24,7 @@ body {
 	margin-left: 50px;
 }
 
-.breadcrumbitem a, .breadcrumbitem a:hover, .breadcrumbitem a:visited {
+.breadcrumbitem a, .breadcrumbitem a:hover, .breadcrumbitem a:visited, .breadcrumbitem {
 	padding: 5px 10px 8px 10px;
 	background: #fff;
 	font-weight: bold;
