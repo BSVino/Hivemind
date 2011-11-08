@@ -10,6 +10,10 @@ body {
 	margin: 0 0 0 0
 }
 
+img {
+	border: 0px;
+}
+
 #header {
 	margin-top: 10px;
 	padding: 0;
@@ -50,6 +54,26 @@ body {
 
 #loginbox a:hover {
 	background-color: #fff;
+	text-decoration: none;
+}
+
+#leftbar
+{
+	float: left;
+	width: 160px;
+
+}
+
+#leftbar ul {
+	list-style-type: none;
+	text-transform: uppercase;
+	padding-left: 10px;
+}
+
+#leftbar li.selected, #leftbar a {
+	color: #fff;
+	background-color: #b08d1f;
+	padding-left: 5px;
 	text-decoration: none;
 }
 

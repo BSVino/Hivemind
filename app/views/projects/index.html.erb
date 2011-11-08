@@ -4,28 +4,25 @@
 	<span class="breadcrumbitem"><a href="/projects">Projects</a></span>
 <% end %>
 
-<h1>Listing projects</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Engine</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @projects.each do |project| %>
-  <tr>
-    <td><%= project.name %></td>
-    <td><%= project.engine %></td>
-    <td><%= link_to 'Show', project %></td>
-    <td><%= link_to 'Edit', edit_project_path(project) %></td>
-    <td><%= link_to 'Destroy', project, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
+<% content_for :leftbar do %>
+<div id="leftbar">
+	<ul>
+		<li>New Contributions</li>
+		<li>Open Tasks</li>
+		<li class="selected"><a href="/projects">Projects</a></li>
+	</ul>
+</div>
 <% end %>
-</table>
 
-<br />
+<div class="projectlist">
+<% @projects.each do |project| %>
+<div class="project">
+	<a href="<%= project_path(project) %>"><img class="thumbnail" src="/assets/project-default-icon.png" /></a>
+	<div class="projectname"><%= link_to project.name, project %></div>
+	<strong>Engine:</strong> <%= project.engine %><br />
+</div>
+<% end %>
+
+<br clear="both" />
 
 <%= link_to 'New Project', new_project_path %>
