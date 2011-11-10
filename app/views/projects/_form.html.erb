@@ -1,3 +1,6 @@
+<div id="projectform">
+<hr />
+
 <%= form_for(@project) do |f| %>
   <% if @project.errors.any? %>
     <div id="error_explanation">
@@ -19,7 +22,22 @@
     <%= f.label :engine %><br />
     <%= f.text_field :engine %>
   </div>
+  <div class="field">
+  	Type: <%= select("project", "players", ["Multiplayer", "Singleplayer", "SP/MP"], :prompt => @project.players.length==0) %>
+  </div>
+  <div class="field">
+  	Genre: <%= select("project", "genre", ["Action", "Adventure", "Strategy", "Puzzle", "Action", "RPG", "Adventure", "Shooter"], :prompt => @project.genre.length==0) %>
+  </div>
+  <div class="field">
+  	Release status: <%= select("project", "status", ["Unreleased", "Alpha", "Beta", "Released"], :prompt => @project.status.length==0) %>
+  </div>
+  <div class="field">
+    <p>Tell us about your game but <strong>keep it brief</strong>! This description will appear as people browse projects.</p>
+  	<%= f.text_area :description, :size => "60x10" %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+</div>

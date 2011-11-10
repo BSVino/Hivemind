@@ -2,6 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#projectform
+{
+	width: 500px;
+	margin: auto;
+}
+
+#projectform hr
+{
+	width: 500px;
+	color: #b08d1f;
+}
+
 .projectlist
 {
 	float: left;
@@ -42,3 +54,14 @@
 	}
 }
 
+.project .information
+{
+	float: left;
+	width: 200px;
+}
+
+.project .description
+{
+	float: left;
+	width: 300px;
+}

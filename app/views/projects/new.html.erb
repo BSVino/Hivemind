@@ -1,13 +1,9 @@
 <% content_for :breadcrumb do %>
-	<span class="breadcrumbitem"><a href="/projects">Projects</a></span>
+	<span class="breadcrumbitem"><a href="/">Hivemind</a></span>
 	<span class="breadcrumbgt">&gt;</span>
-	<span class="breadcrumbitem">Create</span>
+	<span class="breadcrumbitem">Create Project</span>
 <% end %>
 
-<h1>New project</h1>
-
-<p>Yo ho! You are the adventurous, the enterprising, the few and the proud who dare to create!</p>
+<p style="width: 500px; margin: auto;">Yo ho! You are the adventurous, the enterprising, the few and the proud who dare to create!</p>
 
 <%= render 'form' %>
-
-<%= link_to 'Back', projects_path %>

@@ -11,13 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111011113747) do
+ActiveRecord::Schema.define(:version => 20111109234943) do
 
   create_table "projects", :force => true do |t|
     t.string   "name"
     t.string   "engine"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "genre",       :default => "",           :null => false
+    t.string   "players",     :default => "",           :null => false
+    t.string   "status",      :default => "Unreleased", :null => false
+    t.text     "description", :default => "",           :null => false
   end
 
   create_table "tasks", :force => true do |t|

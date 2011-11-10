@@ -19,7 +19,13 @@
 <div class="project">
 	<a href="<%= project_path(project) %>"><img class="thumbnail" src="/assets/project-default-icon.png" /></a>
 	<div class="projectname"><%= link_to project.name, project %></div>
-	<strong>Engine:</strong> <%= project.engine %><br />
+	<div class="information">
+	  <strong>Engine:</strong> <%= project.engine %><br />
+	  <strong>Genre:</strong> <%= project.genre %><br />
+	  <strong>Type:</strong> <%= project.players %><br />
+	  <strong>Status:</strong> <%= project.status %><br />
+	</div>
+	<div class="description"><strong>Description:</strong> <%= project.description %><br />
 </div>
 <% end %>
 
