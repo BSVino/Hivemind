@@ -81,20 +81,20 @@ class ProjectsController < ApplicationController
     end
   end
 
-  # GET /projects/1/tasks
-  def tasks
-    @tasks = Task.find(:all, :conditions => { :project_id => params[:id] })
+  # GET /projects/1/task_folders
+  def task_folders
+    @task_folders = TaskFolder.find(:all, :conditions => { :project_id => params[:id] })
 	@project = Project.find(params[:id])
 
-	render '/tasks/index'
+	render '/task_folders/index'
   end
 
-  # GET /projects/1/tasks/new
-  def tasks_new
+  # GET /projects/1/task_folders/new
+  def task_folders_new
     @project = Project.find(params[:id])
-    @task = @project.tasks.build
+    @task_folder = @project.task_folders.build
 
-    render '/tasks/new'
+    render '/task_folders/new'
   end
 
 end

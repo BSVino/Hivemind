@@ -1,5 +1,6 @@
 class Project < ActiveRecord::Base
-	has_many :tasks, :dependent => :destroy
+	has_many :tasks
+	has_many :task_folders, :dependent => :destroy
 
 	validates_presence_of :engine
 	validates_presence_of :name

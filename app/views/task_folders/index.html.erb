@@ -1,0 +1,29 @@
+<% content_for :breadcrumb do %>
+	<span class="breadcrumbitem"><%= link_to @project.name, @project %></span>
+	<span class="breadcrumbgt">&gt;</span>
+	<span class="breadcrumbitem">Task Folders</span>
+<% end %>
+
+<h1>Listing Task Folders</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @task_folders.each do |task_folder| %>
+  <tr>
+    <td><%= task_folder.name %></td>
+    <td><%= link_to 'Show', task_folder %></td>
+    <td><%= link_to 'Edit', edit_task_folder_path(task_folder) %></td>
+    <td><%= link_to 'Destroy', task_folder, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Create New Folder', task_folders_new_project_path %>

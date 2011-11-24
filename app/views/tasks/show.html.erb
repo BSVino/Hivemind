@@ -22,15 +22,15 @@
 </p>
 
 <p>
-  <b>Parent:</b>
-  <%= @task.parent %>
+  <b>Folder:</b>
+  <%= @task.task_folder.name %>
 </p>
 
 <p>
   <b>Project:</b>
-  <%= @task.project_id %>
+  <%= @task.project.name %>
 </p>
 
 
 <%= link_to 'Edit', edit_task_path %> |
-<%= link_to 'Back', tasks_project_path(@task.project_id) %>
+<%= link_to 'Back', tasks_task_folder_path(@task.task_folder_id) %>

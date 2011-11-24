@@ -11,8 +11,7 @@
     <th>Name</th>
     <th>Tasktype</th>
     <th>Difficulty</th>
-    <th>Task</th>
-    <th>Project</th>
+    <th>Folder</th>
     <th></th>
     <th></th>
     <th></th>
@@ -23,8 +22,7 @@
     <td><%= task.name %></td>
     <td><%= task.tasktype %></td>
     <td><%= task.difficulty %></td>
-    <td><%= task.parent %></td>
-    <td><%= task.project %></td>
+    <td><%= task.task_folder.name %></td>
     <td><%= link_to 'Show', task_path(task) %>
     </td>
     <td>
@@ -39,4 +37,5 @@
 
 <br />
 
-<%= link_to 'New Task', tasks_new_project_path %>
+<%= link_to 'New Task', tasks_new_task_folder_path(@task_folder) %> |
+<%= link_to 'Back to Folder', task_folder_path(@task_folder) %>

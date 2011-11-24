@@ -11,7 +11,8 @@
     </div>
   <% end %>
 
-  <%= f.hidden_field :project_id, :value => @task.project_id %>
+  <%= f.hidden_field :project_id, :value => @task_folder.project_id %>
+  <%= f.hidden_field :task_folder_id, :value => @task.task_folder_id %>
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
@@ -23,10 +24,6 @@
   <div class="field">
     <%= f.label :difficulty %><br />
     <%= f.number_field :difficulty %>
-  </div>
-  <div class="field">
-    <%= f.label :parent_task %><br />
-    <%= f.text_field :parent %>
   </div>
   <div class="actions">
     <%= f.submit %>

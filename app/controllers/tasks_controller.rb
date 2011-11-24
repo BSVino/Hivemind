@@ -26,6 +26,7 @@ class TasksController < ApplicationController
   # GET /tasks/new.json
   def new
     @task = Task.new
+    @project = @task.project
 
     respond_to do |format|
       format.html # new.html.erb
@@ -36,6 +37,8 @@ class TasksController < ApplicationController
   # GET /tasks/1/edit
   def edit
     @task = Task.find(params[:id])
+	@task_folder = @task.task_folder
+    @project = @task.project
   end
 
   # POST /tasks
@@ -43,8 +46,9 @@ class TasksController < ApplicationController
   def create
     taskparams = params[:task]
 	@project = Project.find(taskparams[:project_id])
+	@task_folder = TaskFolder.find(taskparams[:task_folder_id])
 	taskparams[:project] = @project
-	taskparams[:parent] = nil
+	taskparams[:task_folder] = @task_folder
     @task = Task.new(taskparams)
 
     respond_to do |format|
@@ -64,7 +68,11 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
 
     taskparams = params[:task]
-	taskparams[:parent] = nil
+	@project = Project.find(taskparams[:project_id])
+	@task_folder = TaskFolder.find(taskparams[:task_folder_id])
+
+	taskparams[:project] = @project
+	taskparams[:task_folder] = @task_folder
 
     respond_to do |format|
       if @task.update_attributes(taskparams)
@@ -81,11 +89,11 @@ class TasksController < ApplicationController
   # DELETE /tasks/1.json
   def destroy
     @task = Task.find(params[:id])
-    project = @task.project
+    task_folder = @task.task_folder
     @task.destroy
 
     respond_to do |format|
-      format.html { redirect_to tasks_project_url(project) }
+      format.html { redirect_to tasks_task_folder_url(task_folder) }
       format.json { head :ok }
     end
   end
