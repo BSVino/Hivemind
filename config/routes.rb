@@ -9,6 +9,7 @@ Hivemind::Application.routes.draw do
 
   resources :task_folders do
     member do
+      get 'new_folder', :action => 'task_folders_new'
       get 'tasks', :action => 'tasks'
       get 'tasks/new', :action => 'tasks_new'
     end

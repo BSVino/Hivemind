@@ -15,6 +15,7 @@ class TaskFoldersController < ApplicationController
   def show
     @task_folder = TaskFolder.find(params[:id])
     @project = @task_folder.project
+    @sub_folders = TaskFolder.find(:all, :conditions => { :parent_id => @task_folder.id })
 
     respond_to do |format|
       format.html # show.html.erb
@@ -45,8 +46,9 @@ class TaskFoldersController < ApplicationController
   def create
     taskfolderparams = params[:task_folder]
 	@project = Project.find(taskfolderparams[:project_id])
+	@parent = TaskFolder.find(taskfolderparams[:parent_id])
 	taskfolderparams[:project] = @project
-	taskfolderparams[:parent] = nil
+	taskfolderparams[:parent] = @parent
     @task_folder = TaskFolder.new(taskfolderparams)
 
     respond_to do |format|
@@ -87,6 +89,16 @@ class TaskFoldersController < ApplicationController
       format.html { redirect_to task_folders_project_url(project) }
       format.json { head :ok }
     end
+  end
+
+  # GET /projects/1/task_folders/new
+  def task_folders_new
+    @parent_id = params[:id]
+    @parent = TaskFolder.find(@parent_id)
+    @project = @parent.project
+    @task_folder = @project.task_folders.build
+
+    render '/task_folders/new'
   end
 
   # GET /task_folders/1/tasks

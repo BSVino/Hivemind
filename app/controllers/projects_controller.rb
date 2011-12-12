@@ -83,7 +83,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1/task_folders
   def task_folders
-    @task_folders = TaskFolder.find(:all, :conditions => { :project_id => params[:id] })
+    @task_folders = TaskFolder.find(:all, :conditions => { :project_id => params[:id], :parent_id => nil })
 	@project = Project.find(params[:id])
 
 	render '/task_folders/index'

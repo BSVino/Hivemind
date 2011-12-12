@@ -6,4 +6,7 @@ class TaskFolder < ActiveRecord::Base
 
   validates_presence_of :project
   validates_presence_of :name
+
+  acts_as_nested_set
+  attr_protected :lgt, :rgt
 end

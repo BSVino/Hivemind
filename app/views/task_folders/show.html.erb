@@ -5,6 +5,18 @@
   <%= @task_folder.name %>
 </p>
 
+<% if @sub_folders.length > 0 %>
+  <p>
+    <b>Subfolders:</b>
+    <p>
+      <% @sub_folders.each do |sub_folder| %>
+  	    <%= link_to sub_folder.name, sub_folder %> (<%= link_to 'Delete', sub_folder, confirm: 'Are you sure?', method: :delete %>)<br />
+      <% end %>
+    </p>
+  </p>
+<% end %>
+
+<%= link_to 'Create New Folder', new_folder_task_folder_path(@task_folder) %>
 <%= link_to 'Show Tasks', tasks_task_folder_path(@task_folder) %> |
 
 <%= link_to 'Edit', edit_task_folder_path(@task_folder) %> |
