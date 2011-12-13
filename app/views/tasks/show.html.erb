@@ -23,7 +23,7 @@
 
 <p>
   <b>Folder:</b>
-  <%= @task.task_folder.name %>
+  <%= link_to @task.task_folder.name, task_folder_path(@task.task_folder_id) %>
 </p>
 
 <p>
@@ -33,4 +33,4 @@
 
 
 <%= link_to 'Edit', edit_task_path %> |
-<%= link_to 'Back', tasks_task_folder_path(@task.task_folder_id) %>
+<%= link_to 'Back', task_folder_path(@task.task_folder_id) %>

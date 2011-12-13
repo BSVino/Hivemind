@@ -3,21 +3,29 @@
 <p>
   <b>Name:</b>
   <%= @task_folder.name %>
+  <% if @task_folder.parent_id == nil %>
+  	(<%= link_to 'Return to project', project_path(@task_folder.project) %>)
+  <% else %>
+    (<%= link_to 'Up to one level', task_folder_path(@task_folder.parent_id) %>)
+  <% end %>
 </p>
 
-<% if @sub_folders.length > 0 %>
-  <p>
-    <b>Subfolders:</b>
-    <p>
-      <% @sub_folders.each do |sub_folder| %>
-  	    <%= link_to sub_folder.name, sub_folder %> (<%= link_to 'Delete', sub_folder, confirm: 'Are you sure?', method: :delete %>)<br />
-      <% end %>
-    </p>
-  </p>
+<%= render '/task_folders/list_subfolders' %>
+
+<p>
+	<strong>Tasks:</strong>
+	<ul>
+<% @tasks.each do |task| %>
+		<li>
+			<strong><%= link_to task.name, task_path(task) %></strong>
+		    <%= task.tasktype %>
+			<%= task.difficulty %>
+			(<%= link_to 'Delete', task, confirm: 'Are you sure?', method: :delete %>)
+		</li>
 <% end %>
+	</ul>
+</p>
 
-<%= link_to 'Create New Folder', new_folder_task_folder_path(@task_folder) %>
-<%= link_to 'Show Tasks', tasks_task_folder_path(@task_folder) %> |
+<p><%= link_to 'Create Task', tasks_new_task_folder_path(@task_folder) %></p>
 
-<%= link_to 'Edit', edit_task_folder_path(@task_folder) %> |
-<%= link_to 'Back', task_folders_project_path(@project) %>
+<%= link_to 'Edit', edit_task_folder_path(@task_folder) %>

@@ -1,0 +1,23 @@
+<% if @sub_folders.length > 0 %>
+<p>
+  <b>Subfolders:</b>
+  <ul>
+  <% @sub_folders.each do |sub_folder| %>
+    <li>
+      <strong><%= link_to sub_folder.name, sub_folder %></strong>
+      <%= link_to 'Edit', edit_task_folder_path(sub_folder) %>
+      (<%= link_to 'Delete', sub_folder, confirm: 'Are you sure?', method: :delete %>)
+    </li>
+  <% end %>
+  </ul>
+</p>
+<% end %>
+
+<p>
+	<% if defined? @task_folder %>
+		<%= link_to 'Create Subfolder', new_folder_task_folder_path(@task_folder) %><br />
+	<% else %>
+		<%= link_to 'Create Folder', task_folders_new_project_path(@project) %><br />
+	<% end %>
+</p>
+

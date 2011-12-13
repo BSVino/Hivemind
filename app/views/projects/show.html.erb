@@ -36,7 +36,7 @@
   <%= @project.description %>
 </p>
 
-<%= link_to 'Show Folders', task_folders_project_path(@project) %> |
+<%= render '/task_folders/list_subfolders' %>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Destroy', @project, confirm: 'Are you sure?', method: :delete %> |

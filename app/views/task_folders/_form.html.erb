@@ -18,7 +18,10 @@
   </div>
   <div class="field">
     <%= f.label :parent_id %><br />
-    <%= select_tag 'task_folder[parent_id]', options_for_select(nested_set_options(TaskFolder, @task_folder) {|i| "#{'-' * i.level} #{i.name}" }, @parent_id) %>
+    <%= 
+	default = '<option value="">' + @project.name + '</option>'
+	select("task_folder", "parent_id", default.html_safe+options_for_select(nested_set_options(@possible_parents, @task_folder) {|i| "#{'-' * (i.level+1)} #{i.name}" }, @task_folder.parent_id))
+   	%>
   </div>
   <div class="actions">
     <%= f.submit %>

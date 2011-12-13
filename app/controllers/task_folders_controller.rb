@@ -16,6 +16,7 @@ class TaskFoldersController < ApplicationController
     @task_folder = TaskFolder.find(params[:id])
     @project = @task_folder.project
     @sub_folders = TaskFolder.find(:all, :conditions => { :parent_id => @task_folder.id })
+	@tasks = @task_folder.tasks
 
     respond_to do |format|
       format.html # show.html.erb
@@ -39,6 +40,7 @@ class TaskFoldersController < ApplicationController
   def edit
     @task_folder = TaskFolder.find(params[:id])
     @project = @task_folder.project
+	@possible_parents = TaskFolder.find(:all, :conditions => { :project_id => @project.id, :parent_id => nil })
   end
 
   # POST /task_folders
@@ -46,8 +48,12 @@ class TaskFoldersController < ApplicationController
   def create
     taskfolderparams = params[:task_folder]
 	@project = Project.find(taskfolderparams[:project_id])
-	@parent = TaskFolder.find(taskfolderparams[:parent_id])
 	taskfolderparams[:project] = @project
+	parent_id = taskfolderparams[:parent_id]
+	@parent = nil
+	if parent_id != nil && parent_id != ""
+		@parent = TaskFolder.find(parent_id)
+	end
 	taskfolderparams[:parent] = @parent
     @task_folder = TaskFolder.new(taskfolderparams)
 
@@ -97,6 +103,8 @@ class TaskFoldersController < ApplicationController
     @parent = TaskFolder.find(@parent_id)
     @project = @parent.project
     @task_folder = @project.task_folders.build
+	@task_folder.parent_id = @parent_id
+	@possible_parents = TaskFolder.find(:all, :conditions => { :project_id => @project.id, :parent_id => nil })
 
     render '/task_folders/new'
   end

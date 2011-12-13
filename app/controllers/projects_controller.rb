@@ -14,6 +14,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1.json
   def show
     @project = Project.find(params[:id])
+    @sub_folders = TaskFolder.find(:all, :conditions => { :project_id => params[:id], :parent_id => nil })
 
     respond_to do |format|
       format.html # show.html.erb
