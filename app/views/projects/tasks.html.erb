@@ -10,8 +10,8 @@
 	<ul>
 		<li><%= link_to @project.name, project_path(@project.id) %></li>
 		<li><%= link_to 'About', about_project_path(@project.id) %></li>
-		<li><%= link_to 'Folders', folders_project_path(@project.id) %></li>
-		<li class="selected"><%= link_to 'Project', tasks_project_path(@project.id) %></li>
+		<li><%= link_to 'Project', folders_project_path(@project.id) %></li>
+		<li class="selected"><%= link_to 'Tasks', tasks_project_path(@project.id) %></li>
 	</ul>
 <% end %>
 
