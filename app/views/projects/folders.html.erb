@@ -1,0 +1,19 @@
+<% content_for :breadcrumb do %>
+	<span class="breadcrumbitem"><a href="/projects">Projects</a></span>
+	<span class="breadcrumbgt">&gt;</span>
+	<span class="breadcrumbitem"><%= link_to @project.name, @project %></span>
+<% end %>
+
+<p id="notice"><%= notice %></p>
+
+<% content_for :leftbar do %>
+	<ul>
+		<li><%= link_to @project.name, project_path(@project.id) %></li>
+		<li><%= link_to 'About', about_project_path(@project.id) %></li>
+		<li class="selected"><%= link_to 'Project', folders_project_path(@project.id) %></li>
+		<li><%= link_to 'Tasks', tasks_project_path(@project.id) %></li>
+	</ul>
+<% end %>
+
+<%= render '/task_folders/list_subfolders' %>
+

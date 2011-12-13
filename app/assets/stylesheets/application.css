@@ -61,7 +61,7 @@ img {
 {
 	float: left;
 	width: 160px;
-
+	border: 1px solid white;	/* Force the block to have a size */
 }
 
 #leftbar ul {
@@ -70,13 +70,33 @@ img {
 	padding-left: 10px;
 }
 
-#leftbar li.selected, #leftbar a {
+#leftbar li {
+	width: 150px;
+	height: 1.5em;
+	overflow: hidden;
+}
+
+#leftbar li.selected a {
 	color: #fff;
 	background-color: #b08d1f;
 	padding-left: 5px;
+	width: 145px;
 	text-decoration: none;
 }
 
-#content {
-	margin: 15px 15px 15px 15px;
+#leftbar a {
+	text-decoration: none;
 }
+
+#page {
+	float: left;
+	margin: 15px 15px 15px 15px;
+	width: 100%;
+}
+
+#content {
+	float: left;
+	width: 600px;
+	margin-left: 15px;
+}
+

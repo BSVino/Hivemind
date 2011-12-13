@@ -14,12 +14,34 @@ class ProjectsController < ApplicationController
   # GET /projects/1.json
   def show
     @project = Project.find(params[:id])
-    @sub_folders = TaskFolder.find(:all, :conditions => { :project_id => params[:id], :parent_id => nil })
 
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @project }
     end
+  end
+
+  # GET /projects/1/about
+  def about
+    @project = Project.find(params[:id])
+
+	render 'about'
+  end
+
+  # GET /projects/1/folders
+  def folders
+    @project = Project.find(params[:id])
+    @sub_folders = TaskFolder.find(:all, :conditions => { :project_id => params[:id], :parent_id => nil })
+
+	render 'folders'
+  end
+
+  # GET /projects/1/tasks
+  def tasks
+    @project = Project.find(params[:id])
+    @tasks = Task.find(:all, :conditions => { :project_id => params[:id] })
+
+	render 'tasks'
   end
 
   # GET /projects/new

@@ -4,7 +4,7 @@
   <b>Name:</b>
   <%= @task_folder.name %>
   <% if @task_folder.parent_id == nil %>
-  	(<%= link_to 'Return to project', project_path(@task_folder.project) %>)
+  	(<%= link_to 'Return to project', folders_project_path(@task_folder.project) %>)
   <% else %>
     (<%= link_to 'Up to one level', task_folder_path(@task_folder.parent_id) %>)
   <% end %>

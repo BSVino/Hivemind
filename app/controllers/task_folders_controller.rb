@@ -88,13 +88,21 @@ class TaskFoldersController < ApplicationController
   # DELETE /task_folders/1.json
   def destroy
     @task_folder = TaskFolder.find(params[:id])
+    parent_id = @task_folder.parent_id
     project = @task_folder.project
     @task_folder.destroy
 
-    respond_to do |format|
-      format.html { redirect_to task_folders_project_url(project) }
-      format.json { head :ok }
-    end
+	if parent_id == nil
+		respond_to do |format|
+		  format.html { redirect_to folders_project_url(project) }
+		  format.json { head :ok }
+		end
+	else
+		respond_to do |format|
+		  format.html { redirect_to task_folder_url(parent_id) }
+		  format.json { head :ok }
+		end
+	end
   end
 
   # GET /projects/1/task_folders/new

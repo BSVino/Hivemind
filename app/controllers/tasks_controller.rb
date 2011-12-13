@@ -93,7 +93,7 @@ class TasksController < ApplicationController
     @task.destroy
 
     respond_to do |format|
-      format.html { redirect_to tasks_task_folder_url(task_folder) }
+      format.html { redirect_to task_folder_url(task_folder) }
       format.json { head :ok }
     end
   end

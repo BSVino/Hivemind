@@ -23,7 +23,9 @@
 
 <p>
   <b>Folder:</b>
-  <%= link_to @task.task_folder.name, task_folder_path(@task.task_folder_id) %>
+  <% if @task.task_folder != nil %>
+	  <%= link_to @task.task_folder.name, task_folder_path(@task.task_folder_id) %>
+  <% end %>
 </p>
 
 <p>

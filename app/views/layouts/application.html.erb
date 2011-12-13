@@ -21,10 +21,14 @@
     </div>
   </div>
 
-  <%= yield :leftbar %>
+  <div id="page">
+    <div id="leftbar">
+      <%= yield :leftbar %>
+    </div>
 
-  <div id="content">
-    <%= yield %>
+    <div id="content">
+      <%= yield %>
+    </div>
   </div>
 
 </body>

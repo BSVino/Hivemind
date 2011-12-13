@@ -6,37 +6,27 @@
 
 <p id="notice"><%= notice %></p>
 
+<% content_for :leftbar do %>
+	<ul>
+		<li class="selected"><%= link_to @project.name, project_path(@project.id) %></li>
+		<li><%= link_to 'About', about_project_path(@project.id) %></li>
+		<li><%= link_to 'Project', folders_project_path(@project.id) %></li>
+		<li><%= link_to 'Tasks', tasks_project_path(@project.id) %></li>
+	</ul>
+<% end %>
+
+<img class="project_image" src="/assets/project-default-icon.png" />
+
 <p>
-  <b>Name:</b>
-  <%= @project.name %>
+  <span style="font-size: large"><%= @project.name %></span>
+</p>
+<p>
+  A <%= @project.players %> <%= @project.genre %> game on the <%= @project.engine %> engine.
 </p>
 
 <p>
-  <b>Engine:</b>
-  <%= @project.engine %>
+  <b>Status:</b> <%= @project.status %>
 </p>
-
-<p>
-  <b>Genre:</b>
-  <%= @project.genre %>
-</p>
-
-<p>
-  <b>Type:</b>
-  <%= @project.players %>
-</p>
-
-<p>
-  <b>Status:</b>
-  <%= @project.status %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @project.description %>
-</p>
-
-<%= render '/task_folders/list_subfolders' %>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Destroy', @project, confirm: 'Are you sure?', method: :delete %> |
